@@ -2,7 +2,7 @@
 
 ---
 
-## O que é esse projeto
+## O que é o projeto
 Agenda telefonica onde poderá criar, atualizar, listar e remover contatos (CRUD)
 
 ---
