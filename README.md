@@ -26,7 +26,7 @@ Em desenvolvimento
 * Lombok
 
 ### FrontEnd
-* [angular](https://images.app.goo.gl/p9LBiPCprdUQz7geA)Angular10
+* Angular10
 * Html
 * CSS
 * Typescripte
