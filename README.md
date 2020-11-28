@@ -1,5 +1,7 @@
 # Projeto Contacttura
 
+---
+
 ## O que é esse projeto
 Agenda telefonica onde poderá criar, atualizar, listar e remover contatos (CRUD)
 
