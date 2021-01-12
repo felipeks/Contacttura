@@ -1,0 +1,5 @@
+package com.contacttura.service;
+
+public class CustomUserDetailService {
+
+}
