@@ -1,0 +1,4 @@
+package com.contacttura.contacttura.repository;
+
+public interface UserRepository extends JpaRepository<ContactturaUser, Long> {
+}

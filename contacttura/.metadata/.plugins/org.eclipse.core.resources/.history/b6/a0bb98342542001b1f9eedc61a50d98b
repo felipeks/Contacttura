@@ -1,0 +1,31 @@
+package com.contacttura.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
+
+import com.contacttura.contacttura.model.ContactturaUser;
+import com.contacttura.contacttura.repository.ContactturaUserRepository;
+
+@Component
+public class CustomUserDetailService implements UserDetailsService{
+
+	private final ContactturaUserRepository contactturaUserRepository;
+	
+	@Autowired
+	public CustomUserDetailService(ContactturaUserRepository contactturaUserRepository) {
+	//Método do spring que retorna um userDetails, buscando o user atravez do repositório, recebendo a intanância do repositorio do user local
+		this.contactturaUserRepository = contactturaUserRepository;
+	}
+	
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		ContactturaUser user = Optional<t>.ofNullable(contactturaUserRepository.findByUsername(username))
+				.orelseThrow(() -> NewUsernameNotFoundException("Usuario não encontrado"));
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

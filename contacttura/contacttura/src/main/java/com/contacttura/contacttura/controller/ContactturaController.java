@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,8 +37,7 @@ public class ContactturaController {
 		return repository.findAll();
 	}
 	
-	//find by id - Busca valor pelo ir especifico
-	//
+	//find by id - Busca valor pelo id especifico
 	@GetMapping (value = "{id}")
 	public ResponseEntity findById(@PathVariable long id){
 		return repository.findById(id)
@@ -55,7 +55,6 @@ public class ContactturaController {
 	//Update
 	@PutMapping(value ="{id}")
 	//http;//localhost:8090/contacttura/2
-	//2° possivel quebra do parkinho
 	//public ResponseEntity update (@PathVariable("id") long id, @RequestBody Contacttura contacttura){
 	public ResponseEntity update (@PathVariable long id, @RequestBody Contacttura contacttura) {
 		return repository.findById(id).map(record -> {
@@ -68,6 +67,7 @@ public class ContactturaController {
 	}
 	
 	@DeleteMapping(path = {"/{id}"}) 
+	@PreAuthorize("hasRole('ADMIN')")
 	//http://localhost:8090/contacttura/1
 	public ResponseEntity <?> delete (@PathVariable long id){
 		return repository.findById(id)
